@@ -12,4 +12,13 @@ const markup = galleryItems.map(({ preview, original, description }) =>
     `).join('');
 
 list.insertAdjacentHTML('afterbegin', markup);
+
+
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
+new SimpleLightbox('.gallery a', { captionsData: 'alt', captionPosition: 'bottom', captionDelay: 250 });
+
+
+
+
 console.log(galleryItems);
