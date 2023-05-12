@@ -20,4 +20,3 @@ new SimpleLightbox('.gallery a', { captionsData: 'alt', captionPosition: 'bottom
 
 
 
-// console.log(galleryItems);
