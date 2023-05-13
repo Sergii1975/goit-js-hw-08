@@ -4,7 +4,7 @@ import throttle from 'lodash.throttle';
 const PLAYTIME_KEY = 'videoplayer-current-time';
 
 const iframe = document.querySelector('iframe');
-    const player = new Player(iframe);
+    const player = new Vimeo.Player(iframe);
 
     player.on('timeupdate', throttle(function(currentTime) {
         const seconds = currentTime.seconds;
