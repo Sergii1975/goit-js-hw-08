@@ -11,7 +11,7 @@ const dataEl = {
     message: '',
 };
 
-form.addEventListener('input', throttle(onTextareaInput, 500));
+form.addEventListener('input', throttle(onFormTextInput, 500));
 form.addEventListener('submit', event => {
   event.preventDefault();
     localStorage.removeItem(STORAGE_KEY);
@@ -20,11 +20,11 @@ form.addEventListener('submit', event => {
   console.log(dataEl);
 });
 
-function onTextareaInput(event) {
+function onFormTextInput(event) {
   dataEl[event.target.name] = event.target.value;
   const changedData = JSON.stringify(dataEl);
   localStorage.setItem(STORAGE_KEY, changedData);
-}
+};
 function fillTextarea() {
   const savedMessage = JSON.parse(localStorage.getItem(STORAGE_KEY));
   if (savedMessage === null) {
@@ -35,6 +35,6 @@ function fillTextarea() {
   input.value = savedMessage.email || '';
   dataEl.email = savedMessage.email || '';
   dataEl.message = savedMessage.message || '';
-}
+};
 
 
