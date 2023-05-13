@@ -14,8 +14,11 @@ const dataEl = {
 form.addEventListener('input', throttle(onFormTextInput, 500));
 form.addEventListener('submit', event => {
   event.preventDefault();
+  if (Object.values(dataEl).some(value => value === ''.trim())) {
+    alert('Fill all fields, please!')
+  }
     localStorage.removeItem(STORAGE_KEY);
-    fillTextarea();
+    
   event.currentTarget.reset();
   console.log(dataEl);
 });
@@ -24,6 +27,7 @@ function onFormTextInput(event) {
   dataEl[event.target.name] = event.target.value;
   const changedData = JSON.stringify(dataEl);
   localStorage.setItem(STORAGE_KEY, changedData);
+  fillTextarea();
 };
 function fillTextarea() {
   const savedMessage = JSON.parse(localStorage.getItem(STORAGE_KEY));
