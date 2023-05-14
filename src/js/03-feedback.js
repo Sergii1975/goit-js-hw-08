@@ -28,7 +28,7 @@ function onFormTextInput(event) {
   dataEl[event.target.name] = event.target.value;
   const changedData = JSON.stringify(dataEl);
   localStorage.setItem(STORAGE_KEY, changedData);
-  fillTextarea();
+ 
 };
 function fillTextarea() {
   const savedMessage = JSON.parse(localStorage.getItem(STORAGE_KEY));
