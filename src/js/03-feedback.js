@@ -12,13 +12,14 @@ const dataEl = {
 };
 
 form.addEventListener('input', throttle(onFormTextInput, 500));
+fillTextarea();
+
 form.addEventListener('submit', event => {
   event.preventDefault();
   if (Object.values(dataEl).some(value => value === ''.trim())) {
     alert('Fill all fields, please!')
   }
     localStorage.removeItem(STORAGE_KEY);
-    
   event.currentTarget.reset();
   console.log(dataEl);
 });
@@ -34,11 +35,11 @@ function fillTextarea() {
   if (savedMessage === null) {
     return;
   }
-
   textareaEl.value = savedMessage.message || '';
   input.value = savedMessage.email || '';
   dataEl.email = savedMessage.email || '';
   dataEl.message = savedMessage.message || '';
 };
+
 
 
